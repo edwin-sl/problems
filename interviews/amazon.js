@@ -40,7 +40,11 @@ function dividesExactly(num, arr) {
 // console.log(generalizedGCD(5, [2,4,6,8,10]))
 // console.log(generalizedGCD(5, [2,3,4,5,6]))
 
-
+// Amazon Go Stores
+//
+// I will go through the grid to find the first building (value 1), after that I add 1 to the clusters counter and look for neighbor building to mark them as part of the cluster. After that I keep searching for building which hasn't been marked as part of a cluster.
+//
+// (O) = N*M*
 
 function numberAmazonGoStores(rows, columns, grid)
 {
@@ -57,6 +61,14 @@ function numberAmazonGoStores(rows, columns, grid)
     return clusters
 }
 // FUNCTION SIGNATURE ENDS
+
+
+// Updating Servers
+//
+// I will check how many iterations it take for all the servers to be updated, for that I first search for the servers which currently have the update and these will work as my starting point. If not all servers have the update then I will add 1 to the days needed and propagate the update to the neighbors (above, below, left and right) that are outdated, this new updated servers will work as propagation points in case there are still outdated servers.
+//   Through the whole process I'm adding how many servers have been updated, including the ones that started with the new version, and at the end this number should be the same as the total of servers, that is when I return the number of days it took to propagate the update to all servers.
+//
+// (o) = N*M+
 
 function markCluster(posX, posY, grid) {
     if (grid[posY][posX] !== 1) {
